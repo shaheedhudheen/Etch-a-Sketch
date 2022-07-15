@@ -1,16 +1,33 @@
 let slider = document.querySelector(".slider");
-let gridRange = document.querySelectorAll(".gridRange");
+let gridRange = document.querySelector(".gridRange");
+let gridBox = document.querySelector(".gridbox");
 
-console.log(slider.value);
-console.log(gridRange);
 
-gridRange.forEach((e) => {
-  e.textContent = slider.value;
-});
+let gridSize = slider.value;
+
+
+gridBox.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+gridBox.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+console.log(gridSize);
+
+for (let i = 0; i <= gridSize * gridSize; i++) {
+  let grid = document.createElement("div");
+  gridBox.appendChild(grid);
+  grid.classList.add("cell"); 
+}
+
+//create a grid from slider size
+
+
 
 // Update the current slider value (each time you drag the slider handle)
-slider.addEventListener("input", (e) => {
-  gridRange.forEach((e) => {
-    e.textContent = slider.value;
-  });
-});
+
+
+// function sliderValue(){
+//  const sliderValue = slider.addEventListener("input", (e) => {
+//     gridSize = slider.value;
+//     gridRange.textContent = `${slider.value} X ${slider.value}`;
+//   });
+//   return sliderValue;
+// }
+

@@ -76,10 +76,6 @@
     display: grid;
     width: 500px;
     height: 500px;
-    background-color: beige
-}
-
-.cell{
     border: 1px solid;
 }
 

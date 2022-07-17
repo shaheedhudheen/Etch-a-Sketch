@@ -26,6 +26,17 @@ colorPick.addEventListener("change", () => {
   color = colorPick.value;
 });
 
+//random color generator
+const randColor = () => {
+  return (
+    "#" +
+    Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, "0")
+      .toUpperCase()
+  );
+};
+
 //select mode by clicking buttons
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -58,6 +69,7 @@ function createGrid(gridSize) {
     gridBox.appendChild(grid);
     grid.classList.add("cell");
   }
+  modeSelect(mode)
 }
 
 //add color
@@ -65,9 +77,20 @@ function addColor() {
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
-      console.log(e);
       if (e.button === 0 && !Event.mousedown) {
         cell.style.backgroundColor = color;
+      }
+    });
+  });
+}
+
+//random color
+function randomColor(){
+  let cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.addEventListener("mouseover", (e) => {
+      if (e.button === 0 && !Event.mousedown) {
+        cell.style.backgroundColor = randColor();
       }
     });
   });
@@ -96,12 +119,16 @@ function clearAll() {
 //select mode
 function modeSelect(mode) {
   if (mode === "Color Mode") {
-    console.log("add color");
     addColor();
   } else if (mode === "Eraser") {
-    console.log("remove color");
     removeColor();
-  } else if (mode === "Clear") {
+  }else if (mode === 'Rainbow Mode'){
+    randomColor()
+  }
+   else if (mode === "Clear") {
     clearAll();
   }
 }
+
+
+

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -5,6 +7,7 @@
 }
 
 .heading{
+    font-family: 'Alfa Slab One', cursive;
     text-align: center;
     font-weight: 900;
     padding: 1rem;
@@ -66,19 +69,48 @@
     font-size: 1rem;
     font-weight: 600;
 }
+
+.round{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, .50) 0px 3px 8px;
+}
+
 .colorPic{
-    width: 100px;
-    height: 100px;
-    border-style: none;
+    padding: 0;
+    border: none;
+    width: 200%;
+    height: 200%;
+    transform: translate(-25%, -25%)
 }
 
 .gridBox {
     display: grid;
     width: 500px;
     height: 500px;
-    border: 1px solid;
+    box-shadow: rgba(0, 0, 0, .50) 0px 3px 8px;
 }
 
 .addColor{
     background-color: black;
+}
+
+ .focus:focus {
+     background-color: #aaaaaa;
+     color: #ffffff;
+    transition:.20s ease-in-out;
+ }
+
+ .button:hover{
+    background-color: #aaaaaa;
+    color: #ffffff;
+    transform: scale(1.05);
+ }
+
+.active:active{
+    background-color: #aaaaaa;
+    color: #ffffff;
+    transition:.20s ease-in-out;
 }

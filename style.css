@@ -62,17 +62,17 @@
     gap: 20px;
 }
 
-.gridDisplay{
+.display{
     font-size: 1rem;
     font-weight: 600;
 }
-.color{
+.colorPic{
     width: 100px;
     height: 100px;
     border-style: none;
 }
 
-.gridbox {
+.gridBox {
     display: grid;
     width: 500px;
     height: 500px;

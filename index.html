@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
+    <script src="script.js" defer></script>
+    <!-- <script src="test.js" defer></script> -->
     <title>Etch a Sketch</title>
 </head>
 
@@ -15,27 +16,21 @@
     <div class="container">
         <div class="containerOne">
             <div class="colorPicker">
-                <input type="color" class="color" name="color ColorPickerMode" value="#000000">
-                <input class="button colorMode" type="button" value="Color Mode">
+                <input type="color" class="colorPic" name="color ColorPicker" value="#000000">
+                <input class="button color" type="button" value="Color Mode">
             </div>
-            <div class="rainbow">
-                <input type="button" class="button rainbowMode" value="Rainbow Mode">
-            </div>
-            <div class="eraser">
-                <input type="button" class="button eraserMode" value="Eraser">
-            </div>
+                <input type="button" class="button rainbow" value="Rainbow Mode">
+                <input type="button" class="button eraser" value="Eraser">
+                <input type="button" class="button clear" value="Clear">
             <div class="gridSize">
                 <div class="slidecontainer">
-                    <p class="gridDisplay"> 30 x 30 </p>
+                    <p class="display"> 30 x 30 </p>
                     <input type="range" min="10" max="64" value="30" class="slider" id="myRange">
                   </div>
             </div>
-            <div class="btn">
-                <input type="button" class="button clear" value="Clear">
-            </div>
         </div>
         <div class="containerTwo">
-            <div class="gridbox"></div>
+            <div class="gridBox"></div>
         </div>
     </div>
 

@@ -1,30 +1,39 @@
 const gridDisplay = document.querySelector(".gridDisplay");
 const slider = document.querySelector(".slider");
 const gridBox = document.querySelector(".gridbox");
-const eraserMode = document.querySelector(".eraserMode");
 const colorMode = document.querySelector(".colorMode");
+const rainbowMode = document.querySelector(".rainbowMode");
+const eraserMode = document.querySelector(".eraserMode");
 const colorPicker = document.querySelector(".color");
-const clearButton = document.querySelector('.clear');
+const clearButton = document.querySelector(".clear");
+const buttons = document.querySelectorAll(".button");
 
-//select mode
-let modeSelector = colorMode.value;
-console.log(modeSelector);
+//Select mode
+let defaultMode = "color";
+let currentMode = defaultMode;
+colorMode.onclick = () => setMode("color");
+rainbowMode.onclick = () => setMode("rainbow");
+eraserMode.onclick = () => setMode("eraser");
+
+//setmode
+function setMode(mode) {
+  currentMode = mode;
+  console.log(currentMode);
+}
+
+//select mode and add and remove color based on mode
+function addRemoveColorModeSelector() {
+  if (currentMode === "color") {
+    addColor();
+  } else if (currentMode === "eraser") {
+    removeColor();
+  }
+}
 
 // //default option
 createGrid(slider.value);
-addRemoveColorModeSelector();
 
-
-//select mode and add and remove color based on mode
-function addRemoveColorModeSelector(){
-  if (modeSelector === "Color Mode") {
-    addColor();  
-    } 
-  }
-
-
-
-
+//clear grids before slide
 function deleteChild() {
   gridBox.innerHTML = "";
 }
@@ -67,9 +76,14 @@ function addColor() {
   });
 }
 
-
-
-
-
-
-// addColor();
+//removeColor
+function removeColor() {
+  let cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.addEventListener("mouseover", (e) => {
+      if (e.button === 0 && !Event.mousedown) {
+        cell.classList.toggle("addColor");
+      }
+    });
+  });
+}

@@ -13,6 +13,19 @@ const slider = document.querySelector(".slider");
 //grid box
 const gridBox = document.querySelector(".gridBox");
 
+//mouseclick and hold
+let isMousePressed = false;
+
+gridBox.addEventListener("mousedown", function () {
+  isMousePressed = true;
+  console.log(isMousePressed);
+});
+
+gridBox.addEventListener("mouseup", function () {
+  isMousePressed = false;
+  console.log(isMousePressed);
+});
+
 //default Values
 let color = colorPick.value;
 let mode = "Color Mode";
@@ -77,7 +90,7 @@ function addColor() {
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
-      if (e.button === 0 && !Event.mousedown) {
+      if (isMousePressed) {
         cell.style.backgroundColor = color;
       }
     });
@@ -89,7 +102,7 @@ function randomColor(){
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
-      if (e.button === 0 && !Event.mousedown) {
+      if (isMousePressed) {
         cell.style.backgroundColor = randColor();
       }
     });
@@ -101,7 +114,7 @@ function removeColor() {
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
-      if (e.button === 0 && !Event.mousedown) {
+      if (isMousePressed) {
         cell.style.backgroundColor = "white";
       }
     });

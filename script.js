@@ -18,12 +18,10 @@ let isMousePressed = false;
 
 gridBox.addEventListener("mousedown", function () {
   isMousePressed = true;
-  console.log(isMousePressed);
 });
 
 gridBox.addEventListener("mouseup", function () {
   isMousePressed = false;
-  console.log(isMousePressed);
 });
 
 //default Values
@@ -82,7 +80,7 @@ function createGrid(gridSize) {
     gridBox.appendChild(grid);
     grid.classList.add("cell");
   }
-  modeSelect(mode)
+  modeSelect(mode);
 }
 
 //add color
@@ -98,7 +96,7 @@ function addColor() {
 }
 
 //random color
-function randomColor(){
+function randomColor() {
   let cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
@@ -135,13 +133,9 @@ function modeSelect(mode) {
     addColor();
   } else if (mode === "Eraser") {
     removeColor();
-  }else if (mode === 'Rainbow Mode'){
-    randomColor()
-  }
-   else if (mode === "Clear") {
+  } else if (mode === "Rainbow Mode") {
+    randomColor();
+  } else if (mode === "Clear") {
     clearAll();
   }
 }
-
-
-
